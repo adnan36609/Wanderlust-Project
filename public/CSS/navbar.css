@@ -1,0 +1,173 @@
+/* ===========================
+        NAVBAR
+=========================== */
+
+.custom-navbar{
+    background:#fff;
+    height:80px;
+    border-bottom:1px solid #ebebeb;
+    box-shadow:0 2px 12px rgba(0,0,0,.05);
+    z-index:1000;
+}
+
+.navbar-brand{
+    font-size:1.8rem;
+    color:#ff385c !important;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:.4rem;
+}
+
+.navbar-brand span{
+    color:#222;
+    font-size:1.3rem;
+}
+
+.fa-compass{
+    font-size:2rem;
+}
+
+/* ===========================
+        LINKS
+=========================== */
+
+.nav-link{
+    color:#222 !important;
+    font-weight:500;
+    transition:.25s;
+}
+
+.nav-link:hover{
+    color:#ff385c !important;
+}
+
+/* ===========================
+      SEARCH BAR
+=========================== */
+
+.search-bar{
+    width:380px;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:40px;
+    overflow:hidden;
+    align-items:center;
+    padding:6px;
+    transition:.3s;
+}
+
+.search-bar:hover{
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+.search-bar input{
+    border:none;
+    outline:none;
+    box-shadow:none !important;
+    padding-left:18px;
+    font-size:.95rem;
+}
+
+.search-bar input:focus{
+    box-shadow:none;
+}
+
+.search-btn{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#ff385c;
+    color:white;
+    transition:.3s;
+}
+
+.search-btn:hover{
+    background:#e61e4d;
+}
+
+/* ===========================
+      RIGHT BUTTONS
+=========================== */
+
+.host-btn{
+    text-decoration:none;
+    color:#222;
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:30px;
+    transition:.25s;
+}
+
+.host-btn:hover{
+    background:#f7f7f7;
+}
+
+.signup-btn,
+.login-btn,
+.logout-btn{
+
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:30px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.signup-btn{
+
+    border:1px solid #ddd;
+    color:#222;
+}
+
+.signup-btn:hover{
+
+    background:#f7f7f7;
+}
+
+.login-btn{
+
+    background:#ff385c;
+    color:white;
+}
+
+.login-btn:hover{
+
+    background:#e61e4d;
+    color:white;
+}
+
+.logout-btn{
+
+    background:#ff385c;
+    color:white;
+}
+
+.logout-btn:hover{
+
+    background:#e61e4d;
+    color:white;
+}
+
+@media(max-width:992px){
+
+    .custom-navbar{
+        height:auto;
+        padding:12px 0;
+    }
+
+    .search-bar{
+        width:100%;
+        margin:20px 0;
+    }
+
+    .navbar-nav{
+        gap:10px;
+    }
+
+    .host-btn{
+        margin:10px 0;
+    }
+
+}
