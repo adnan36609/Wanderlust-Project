@@ -5,7 +5,6 @@ if(process.env.NODE_ENV != "production"){
     require('dotenv').config();
 }
 
-
 const express=require("express");
 const app=express();
 const mongoose=require("mongoose");
@@ -107,6 +106,9 @@ app.use((req, res, next)=>{
 app.use("/listings", listingRouter); 
 app.use("/listings/:id/reviews", reviewRouter); 
 app.use("/", userRouter); 
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 //error handling using middle-ware:
 app.all("*", (req, res, next)=>{
