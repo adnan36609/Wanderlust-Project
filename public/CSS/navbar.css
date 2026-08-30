@@ -1,173 +1,195 @@
-/* ===========================
-        NAVBAR
-=========================== */
-
-.custom-navbar{
-    background:#fff;
-    height:80px;
-    border-bottom:1px solid #ebebeb;
-    box-shadow:0 2px 12px rgba(0,0,0,.05);
-    z-index:1000;
+.custom-navbar {
+    height: 5rem;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
 }
 
-.navbar-brand{
-    font-size:1.8rem;
-    color:#ff385c !important;
-    font-weight:700;
-    display:flex;
-    align-items:center;
-    gap:.4rem;
+.custom-navbar .container {
+    display: flex;
+    align-items: center;
 }
 
-.navbar-brand span{
-    color:#222;
-    font-size:1.3rem;
+/* Logo */
+
+.custom-navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #222 !important;
+    font-size: 1.25rem;
+    font-weight: 700;
+    white-space: nowrap;
 }
 
-.fa-compass{
-    font-size:2rem;
+.custom-navbar .navbar-brand i {
+    color: #E00B41;
+    font-size: 2rem;
 }
 
-/* ===========================
-        LINKS
-=========================== */
+/* Explore */
 
-.nav-link{
-    color:#222 !important;
-    font-weight:500;
-    transition:.25s;
+.custom-navbar .nav-link {
+    color: #222 !important;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.2s ease;
 }
 
-.nav-link:hover{
-    color:#ff385c !important;
+.custom-navbar .nav-link:hover {
+    color: #E31C5F !important;
 }
 
-/* ===========================
-      SEARCH BAR
-=========================== */
+/* Search */
 
-.search-bar{
-    width:380px;
-    background:white;
-    border:1px solid #ddd;
-    border-radius:40px;
-    overflow:hidden;
-    align-items:center;
-    padding:6px;
-    transition:.3s;
+.custom-navbar .search-bar {
+    position: relative;
+    width: 320px;
+    height: 44px;
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
 }
 
-.search-bar:hover{
-    box-shadow:0 4px 15px rgba(0,0,0,.15);
+.custom-navbar .search-bar .form-control {
+    width: 100%;
+    height: 44px;
+    padding: 0.65rem 3rem 0.65rem 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.search-bar input{
-    border:none;
-    outline:none;
-    box-shadow:none !important;
-    padding-left:18px;
-    font-size:.95rem;
+.custom-navbar .search-bar .form-control:focus {
+    border-color: #aaa;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.search-bar input:focus{
-    box-shadow:none;
+.custom-navbar .search-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background-color: #E31C5F;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-.search-btn{
-    width:42px;
-    height:42px;
-    border:none;
-    border-radius:50%;
-    background:#ff385c;
-    color:white;
-    transition:.3s;
+.custom-navbar .search-btn:hover {
+    transform: scale(1.05);
 }
 
-.search-btn:hover{
-    background:#e61e4d;
+/* Right side */
+
+.custom-navbar .host-btn {
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+    padding: 0.55rem 0.75rem;
+    border-radius: 999px;
 }
 
-/* ===========================
-      RIGHT BUTTONS
-=========================== */
-
-.host-btn{
-    text-decoration:none;
-    color:#222;
-    font-weight:600;
-    padding:10px 18px;
-    border-radius:30px;
-    transition:.25s;
+.custom-navbar .host-btn:hover {
+    background-color: #f7f7f7;
 }
 
-.host-btn:hover{
-    background:#f7f7f7;
+/* Signup */
+
+.custom-navbar .signup-btn {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    transition: background-color 0.2s ease;
 }
 
-.signup-btn,
-.login-btn,
-.logout-btn{
-
-    text-decoration:none;
-    padding:10px 20px;
-    border-radius:30px;
-    font-weight:600;
-    transition:.25s;
+.custom-navbar .signup-btn:hover {
+    background-color: #f7f7f7;
 }
 
-.signup-btn{
+/* Login */
 
-    border:1px solid #ddd;
-    color:#222;
+.custom-navbar .login-btn {
+    text-decoration: none;
+    color: white;
+    background-color: #E31C5F;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    transition: background-color 0.2s ease;
 }
 
-.signup-btn:hover{
-
-    background:#f7f7f7;
+.custom-navbar .login-btn:hover {
+    background-color: #d91455;
 }
 
-.login-btn{
+/* Logout */
 
-    background:#ff385c;
-    color:white;
+.custom-navbar .logout-btn {
+    text-decoration: none;
+    color: white;
+    background-color: #E31C5F;
+    font-weight: 500;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    white-space: nowrap;
 }
 
-.login-btn:hover{
-
-    background:#e61e4d;
-    color:white;
+.custom-navbar .logout-btn:hover {
+    background-color: #d91455;
 }
 
-.logout-btn{
+/* Mobile */
 
-    background:#ff385c;
-    color:white;
-}
+@media (max-width: 991px) {
 
-.logout-btn:hover{
-
-    background:#e61e4d;
-    color:white;
-}
-
-@media(max-width:992px){
-
-    .custom-navbar{
-        height:auto;
-        padding:12px 0;
+    .custom-navbar {
+        height: auto;
+        min-height: 5rem;
     }
 
-    .search-bar{
-        width:100%;
-        margin:20px 0;
+    .custom-navbar .navbar-collapse {
+        padding: 1rem 0;
     }
 
-    .navbar-nav{
-        gap:10px;
+    .custom-navbar .navbar-nav {
+        margin: 0 !important;
     }
 
-    .host-btn{
-        margin:10px 0;
+    .custom-navbar .search-bar {
+        width: 100%;
+        margin: 1rem 0 !important;
     }
 
+    .custom-navbar .navbar-nav.ms-auto {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .custom-navbar .host-btn {
+        margin-right: 0 !important;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .custom-navbar .navbar-brand span {
+        font-size: 1.1rem;
+    }
+
+    .custom-navbar .search-bar {
+        width: 100%;
+    }
 }

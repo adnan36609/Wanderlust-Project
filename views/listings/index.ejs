@@ -81,7 +81,7 @@
 
 </div>
 
-<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-1 g-4">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 listing-grid">
     <% for(let listing of all_listings){ %>
 
     <a href="/listings/<%= listing.id %>" class="card-link">
@@ -91,8 +91,7 @@
             <img
                 src="<%= listing.image.url %>"
                 class="card-img-top"
-                alt="listing_image"
-                style="height:15rem;object-fit:cover;"
+                alt="<%= listing.title %>"
             >
 
             <div class="card-img-overlay"></div>
@@ -103,12 +102,23 @@
                     <b><%= listing.title %></b>
                 </h5>
 
-                <p class="card-text">
-                    &#8377;
-                    <%= listing.price != null ? listing.price.toLocaleString("en-IN") : "N/A" %>
-                    /night
-                    <i class="tax-info">(+18% GST)</i>
-                </p>
+<p class="card-text">
+    <span class="price-original">
+        &#8377;
+        <%= listing.price != null ? listing.price.toLocaleString("en-IN") : "N/A" %>
+        /night
+    </span>
+
+    <span class="price-with-tax" style="display: none;">
+        &#8377;
+        <%= listing.price != null
+            ? Math.round(listing.price * 1.18).toLocaleString("en-IN")
+            : "N/A" %>
+        /night
+    </span>
+
+    <i class="tax-info">(+18% GST)</i>
+</p>
 
             </div>
 
@@ -120,42 +130,39 @@
 </div>
 
 <script>
-const taxSwitch=document.getElementById("switchCheckReverse");
+    const taxSwitch = document.getElementById("switchCheckReverse");
 
-taxSwitch.addEventListener("click",()=>{
+    taxSwitch.addEventListener("change", () => {
+        const originalPrices = document.getElementsByClassName("price-original");
+        const taxPrices = document.getElementsByClassName("price-with-tax");
+        const taxInfo = document.getElementsByClassName("tax-info");
 
-    const taxInfo=document.getElementsByClassName("tax-info");
-
-    for(const info of taxInfo){
-
-        if(info.style.display!="inline"){
-            info.style.display="inline";
+        for (let i = 0; i < originalPrices.length; i++) {
+            if (taxSwitch.checked) {
+                originalPrices[i].style.display = "none";
+                taxPrices[i].style.display = "inline";
+                taxInfo[i].style.display = "none";
+            } else {
+                originalPrices[i].style.display = "inline";
+                taxPrices[i].style.display = "none";
+                taxInfo[i].style.display = "inline";
+            }
         }
-        else{
-            info.style.display="none";
-        }
-
-    }
-
-});
-
-const filterScroll=document.querySelector(".filter-scroll");
-
-document.querySelector(".filter-btn-right").addEventListener("click",()=>{
-
-    filterScroll.scrollBy({
-        left:300,
-        behavior:"smooth"
     });
 
-});
+    const filterScroll = document.querySelector(".filter-scroll");
 
-document.querySelector(".filter-btn-left").addEventListener("click",()=>{
-
-    filterScroll.scrollBy({
-        left:-300,
-        behavior:"smooth"
+    document.querySelector(".filter-btn-right").addEventListener("click", () => {
+        filterScroll.scrollBy({
+            left: 300,
+            behavior: "smooth"
+        });
     });
 
-});
+    document.querySelector(".filter-btn-left").addEventListener("click", () => {
+        filterScroll.scrollBy({
+            left: -300,
+            behavior: "smooth"
+        });
+    });
 </script>
