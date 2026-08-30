@@ -9,20 +9,34 @@ const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 //    res.render("listings/index.ejs", {all_listings});
 // };
 module.exports.index = async (req, res) => {
-   const { category } = req.query;
-   let all_listings;
+    const { category, search } = req.query;
 
-   if (category && category !== "Trending") {
-       all_listings = await Listing.find({ category: category });
-   }
-   else {
-       all_listings = await Listing.find({});
-   }
+    let all_listings;
 
-   res.render("listings/index.ejs", {
-       all_listings,
-       activeCategory: category || "Trending",
-   });
+    if (search && search.trim() !== "") {
+        const searchRegex = new RegExp(search.trim(), "i");
+
+        all_listings = await Listing.find({
+            $or: [
+                { title: searchRegex },
+                { description: searchRegex },
+                { location: searchRegex },
+                { country: searchRegex },
+            ],
+        });
+    } else if (category && category !== "Trending") {
+        all_listings = await Listing.find({
+            category: category,
+        });
+    } else {
+        all_listings = await Listing.find({});
+    }
+
+    res.render("listings/index.ejs", {
+        all_listings,
+        activeCategory: category || "Trending",
+        searchQuery: search || "",
+    });
 };
 
 module.exports.renderNewForm= (req, res)=>{
